@@ -29,4 +29,9 @@ public class Car {
 		this.model = model; 
 	}
 	
+	@Override
+	public String toString() {
+		return "Car [carId = "+carId+" manufacturer = "+manufacturer+" Model = "+model+"]";
+	}
+	
 }
