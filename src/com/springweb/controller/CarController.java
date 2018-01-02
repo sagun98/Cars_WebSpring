@@ -55,4 +55,22 @@ public class CarController extends HttpServlet{
 		view.forward(request, response);
 	}
 	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		Car car = (Car)context.getBean("car");
+		car.setManufacturer(request.getParameter("manufacturer"));
+		car.setModel(Integer.parseInt(request.getParameter("model")));
+		String carId = request.getParameter("carId");
+		
+		if (carId == null || carId.isEmpty()) {
+			dao.addCar(car);
+		}
+		else {
+			car.setCarId(Integer.parseInt(carId));
+			dao.updateCar(car);
+		}
+		RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
+		request.setAttribute("cars", dao.getAllCars());
+		view.forward(request, response);
+	}	
 }

@@ -13,7 +13,9 @@
 <form method = "POST" action="CarController" name="frmAddCar">
 	Car ID: <input type = "text" readonly="readonly" name="carId" value="<c:out value="${car.cadId}"/>"/>
 	<br>
-	Car ID: <input type = "text" readonly="readonly" name="manufacturer" value="<c:out value="${car.manufacturer}"/>"/>
+	Car Manufacturer: <input type = "text" readonly="readonly" name="manufacturer" value="<c:out value="${car.manufacturer}"/>"/>
+	<br>
+	Car Model: <input type = "text" readonly="readonly" name="model" value="<c:out value="${car.model}"/>"/>
 	<br>
 	<input type="submit" value="submit"/>
 </form>
